@@ -66,11 +66,11 @@ protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "BaseCharacter")
 	AllianceType _allianceType;
 
-protected:
+public:
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Pickup")
-	virtual void attack(void);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "BaseCharacter")
+	virtual void attack();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Pickup")
-	virtual void stopAttack(void);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "BaseCharacter")
+	virtual void stopAttack();
 };
