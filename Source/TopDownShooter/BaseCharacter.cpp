@@ -10,7 +10,7 @@ ABaseCharacter::ABaseCharacter()
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	_health = 100.f;
+	_baseHealth = _health = 100.f;
 	_isDead = false;
 	_allianceType = AllianceType::Neutral;
 
@@ -58,7 +58,7 @@ void ABaseCharacter::CalculateDead()
 void ABaseCharacter::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	_isDead = false;
-	_health = 100;
+	_health = _baseHealth = 100;
 	_allianceType = AllianceType::Neutral;
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 

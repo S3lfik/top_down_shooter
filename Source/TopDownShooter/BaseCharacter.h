@@ -59,6 +59,9 @@ protected:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "BaseCharacter")
 		float _health;
 
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "BaseCharacter")
+		float _baseHealth;
+
 	//Step 3: Expose a boolean property
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "BaseCharacter")
 		bool _isDead;
