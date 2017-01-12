@@ -5,20 +5,20 @@
 #include "GameFramework/Character.h"
 #include "BaseCharacter.generated.h"
 
+UENUM(Blueprintable)
+enum class AllianceType : uint8
+{
+	Neutral		UMETA(DisplayName = "Neutral"),
+	Ally		UMETA(DisplayName = "Ally"),
+	Enemy		UMETA(DisplayName = "Enemy"),
+};
+
 UCLASS(Blueprintable)
 class TOPDOWNSHOOTER_API ABaseCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-
-	UENUM(Blueprintable)
-	enum class AllianceType : uint8
-	{
-		Neutral		UMETA(DisplayName = "Neutral"),
-		Ally		UMETA(DisplayName = "Ally"),
-		Enemy		UMETA(DisplayName = "Enemy"),
-	};
 	//Step 2: Expose a float property
 
 
@@ -71,9 +71,11 @@ protected:
 
 public:
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "BaseCharacter")
-	virtual void attack();
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "BaseCharacter")
+	void attack();
+	virtual void attack_Implementation();
 
-	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "BaseCharacter")
-	virtual void stopAttack();
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "BaseCharacter")
+	void stopAttack();
+	virtual void stopAttack_Implementation();
 };

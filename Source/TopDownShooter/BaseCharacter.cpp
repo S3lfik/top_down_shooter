@@ -34,6 +34,14 @@ void ABaseCharacter::SetupPlayerInputComponent(class UInputComponent* InputCompo
 {
 	Super::SetupPlayerInputComponent(InputComponent);
 }
+void ABaseCharacter::attack_Implementation()
+{
+}
+
+void ABaseCharacter::stopAttack_Implementation()
+{
+}
+
 //Step 1: Implement the CalculateHealth function.
 void ABaseCharacter::CalculateHealth(float Delta)
 {

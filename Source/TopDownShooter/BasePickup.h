@@ -34,7 +34,8 @@ protected:
 protected:
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Pickup")
-	virtual void applyPickup(ACharacter* targetCharacter);
+	void applyPickup_(ACharacter* targetCharacter);
+	virtual void applyPickup_Implementation(ACharacter* targetCharacter);
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pickup", meta = (AllowPrivateAccess = "true"))

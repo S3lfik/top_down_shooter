@@ -40,5 +40,9 @@ void ABasePickup::setActive(bool active)
 	bIsActive = active;
 }
 
+void ABasePickup::applyPickup_Implementation(ACharacter * targetCharacter)
+{
+}
+
 
 
