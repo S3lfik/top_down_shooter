@@ -82,6 +82,8 @@ Temporary Items
 *.suo
 *.opensdf
 *.sdf
+*.sln
+*.VC.*
 
 # Precompiled Assets
 SourceArt/**/*.png
