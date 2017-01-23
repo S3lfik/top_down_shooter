@@ -104,6 +104,9 @@ Saved/*
 # Compiled source files for the engine to use
 Intermediate/*
 
+# Released files
+Releases/*
+
 # Cache files for the editor to use
 DerivedDataCache/*
 
