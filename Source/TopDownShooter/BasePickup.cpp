@@ -10,8 +10,15 @@ ABasePickup::ABasePickup()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	pickupMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Pickup mesh"));
-	RootComponent = pickupMesh;
+	m_pickupRootBox = CreateDefaultSubobject<UBoxComponent>(TEXT("Pickup Root"));
+	m_pickupRootBox->SetCollisionProfileName(TEXT("Pickup"));
+	RootComponent = m_pickupRootBox;
+
+	m_pointLight = CreateDefaultSubobject<UPointLightComponent>(TEXT("Pickup Light"));
+	m_pointLight->SetupAttachment(m_pickupRootBox);
+	m_pointLight->SetRelativeLocation(FVector(0.f, 0.f, -30.f));
+	m_pointLight->SetLightColor(FLinearColor(80, 70, 255));
+	m_pointLight->SetAttenuationRadius(100.f);
 
 	bIsActive = true;
 }
@@ -32,7 +39,7 @@ void ABasePickup::Tick( float DeltaTime )
 
 bool ABasePickup::isActive() const
 {
-	return bIsActive;;
+	return bIsActive;
 }
 
 void ABasePickup::setActive(bool active)

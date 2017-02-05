@@ -20,7 +20,7 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	FORCEINLINE class UStaticMeshComponent* getMesh() const { return pickupMesh; }
+	FORCEINLINE class UBoxComponent* getMesh() const { return m_pickupRootBox; }
 
 	UFUNCTION(BlueprintPure, Category = "Pickup")
 	bool isActive() const;
@@ -39,7 +39,11 @@ protected:
 
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pickup", meta = (AllowPrivateAccess = "true"))
-	class UStaticMeshComponent* pickupMesh;
+	class UBoxComponent* m_pickupRootBox;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Pickup", meta = (AllowPrivateAccess = "true"))
+	class UPointLightComponent* m_pointLight;
+	//class UStaticMeshComponent* pickupMesh;
+	
 	
 	
 };
